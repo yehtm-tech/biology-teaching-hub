@@ -15,34 +15,34 @@
     ::-webkit-scrollbar-thumb:hover { background: #475569; }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+<body class="bg-white text-slate-900 min-h-screen flex flex-col">
 
   <!-- 管理模式提示橫幅 -->
-  <div id="admin-banner" class="bg-emerald-600 text-white px-4 py-2 text-center text-xs font-semibold flex items-center justify-center gap-3 transition-all duration-300 hidden">
+  <div id="admin-banner" class="bg-emerald-600 text-slate-800 px-4 py-2 text-center text-xs font-semibold flex items-center justify-center gap-3 transition-all duration-300 hidden">
     <span>⚠️ 管理編輯模式啟用 - 修改僅限本機儲存，上傳至 GitHub 才算生效</span>
     <div class="flex flex-wrap gap-2 justify-center">
-      <button onclick="openExportModal()" class="bg-emerald-500 hover:bg-emerald-400 text-white px-3 py-1 rounded shadow text-[11px] font-bold transition">
+      <button onclick="openExportModal()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-800 px-3 py-1 rounded shadow text-[11px] font-bold transition">
         💾 匯出最新 HTML
       </button>
-      <button onclick="toggleAdminMode()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1 rounded shadow text-[11px] transition">
+      <button onclick="toggleAdminMode()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-1 rounded shadow text-[11px] transition">
         ❌ 關閉管理
       </button>
     </div>
   </div>
 
   <!-- 頂部導航欄 -->
-  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40">
+  <header class="border-b border-slate-300 bg-white/80 backdrop-blur sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3 min-w-0">
         <span class="text-2xl shrink-0">🧬</span>
         <div class="truncate">
-          <h1 class="text-lg font-bold text-white tracking-wide truncate">海星高中 生物教學資源中心</h1>
-          <p class="text-xs text-slate-400 truncate hidden xs:block">高中生物課程教材、教案、影片、實驗與互動工具</p>
+          <h1 class="text-lg font-bold text-slate-800 tracking-wide truncate">海星高中 生物教學資源中心</h1>
+          <p class="text-xs text-slate-600 truncate hidden xs:block">高中生物課程教材、教案、影片、實驗與互動工具</p>
         </div>
       </div>
       
       <div class="flex items-center space-x-3 shrink-0 ml-4">
-        <button id="admin-mode-toggle" onclick="toggleAdminMode()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5 font-medium shadow-sm shrink-0"><span>⚙️</span> <span class="hidden sm:inline">管理編輯</span></button>
+        <button id="admin-mode-toggle" onclick="toggleAdminMode()" class="text-xs bg-slate-100 hover:bg-slate-700 text-slate-700 px-3.5 py-2 rounded-lg border border-slate-300 transition flex items-center gap-1.5 font-medium shadow-sm shrink-0"><span>⚙️</span> <span class="hidden sm:inline">管理編輯</span></button>
         <button onclick="openGuideModal()" class="text-xs bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 px-3 py-2 rounded-lg border border-emerald-500/30 transition flex items-center gap-1.5 font-medium shadow-sm shrink-0">
           <span>📖</span> <span class="hidden sm:inline">使用說明</span>
         </button>
@@ -51,7 +51,7 @@
   </header>
 
   <!-- 通知訊息框 -->
-  <div id="toast-notification" class="fixed top-20 right-4 z-50 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl border border-emerald-400 flex items-center gap-2 transform transition-all duration-300 translate-x-72 opacity-0">
+  <div id="toast-notification" class="fixed top-20 right-4 z-50 bg-emerald-600 text-slate-800 px-4 py-3 rounded-xl shadow-2xl border border-emerald-400 flex items-center gap-2 transform transition-all duration-300 translate-x-72 opacity-0">
     <span id="toast-icon">✅</span>
     <span id="toast-message">資源已新增！</span>
   </div>
@@ -62,9 +62,9 @@
     <!-- 左側邊欄：課程與資源類型 -->
     <aside class="w-full md:w-64 shrink-0 space-y-6">
       <!-- 課程年級 -->
-      <div class="bg-slate-800/50 border border-slate-800 rounded-xl p-5">
+      <div class="bg-white border border-slate-300 rounded-xl p-5">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">📚 課程年級</h2>
+          <h2 class="text-sm font-semibold text-slate-600 uppercase tracking-wider">📚 課程年級</h2>
           <button id="admin-add-large" onclick="openCategoryModal(null, false)" class="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 px-2 py-0.5 rounded transition hidden">
             ➕ 新增
           </button>
@@ -73,14 +73,14 @@
       </div>
 
       <!-- 資源類型 -->
-      <div class="bg-slate-800/50 border border-slate-800 rounded-xl p-5">
+      <div class="bg-white border border-slate-300 rounded-xl p-5">
         <div class="flex items-center justify-between mb-4">
-          <h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">📂 資源類型</h2>
+          <h2 class="text-sm font-semibold text-slate-600 uppercase tracking-wider">📂 資源類型</h2>
           <button id="admin-add-sub" onclick="openCategoryModal(null, true)" class="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 px-2 py-0.5 rounded transition hidden">
             ➕ 新增
           </button>
         </div>
-        <div id="sub-category-menu" class="space-y-2 text-sm text-slate-300"><p class="text-xs text-slate-500 italic">請先選擇課程年級</p></div>
+        <div id="sub-category-menu" class="space-y-2 text-sm text-slate-700"><p class="text-xs text-slate-500 italic">請先選擇課程年級</p></div>
       </div>
     </aside>
 
@@ -88,20 +88,20 @@
     <section class="flex-grow space-y-6">
       
       <!-- 搜尋欄 -->
-      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-slate-800/40 p-4 rounded-xl border border-slate-800">
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-white p-4 rounded-xl border border-slate-300">
         <div class="relative flex-grow max-w-md">
-          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">🔍</span>
-          <input type="text" id="search-input" placeholder="搜尋教材名稱、主題或關鍵字..." class="w-full pl-9 pr-4 py-2 bg-slate-900 border border-slate-700 rounded-lg text-slate-100 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-600">🔍</span>
+          <input type="text" id="search-input" placeholder="搜尋教材名稱、主題或關鍵字..." class="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         
         <!-- 資源難度篩選 -->
-        <div class="flex items-center gap-1.5 bg-slate-950 p-1 rounded-lg border border-slate-800 text-xs text-slate-400">
-          <button id="type-filter-all" onclick="setTypeFilter('all')" class="px-3 py-1.5 rounded-md font-medium bg-emerald-600 text-white transition">全部</button>
-          <button id="type-filter-basic" onclick="setTypeFilter('basic')" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">基礎</button>
-          <button id="type-filter-advanced" onclick="setTypeFilter('advanced')" class="px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition">進階</button>
+        <div class="flex items-center gap-1.5 bg-slate-50 p-1 rounded-lg border border-slate-300 text-xs text-slate-600">
+          <button id="type-filter-all" onclick="setTypeFilter('all')" class="px-3 py-1.5 rounded-md font-medium bg-emerald-600 text-slate-800 transition">全部</button>
+          <button id="type-filter-basic" onclick="setTypeFilter('basic')" class="px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-200 transition">基礎</button>
+          <button id="type-filter-advanced" onclick="setTypeFilter('advanced')" class="px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-200 transition">進階</button>
         </div>
 
-        <div class="flex items-center space-x-2 text-xs text-slate-400 shrink-0">
+        <div class="flex items-center space-x-2 text-xs text-slate-600 shrink-0">
           <span>顯示</span>
           <span id="filtered-count" class="font-bold text-emerald-400 text-sm">8</span>
           <span>/</span>
@@ -112,7 +112,7 @@
 
       <!-- 篩選指示 -->
       <div id="filter-indicator" class="flex flex-wrap items-center gap-2 hidden">
-        <span class="text-xs text-slate-400">目前篩選：</span>
+        <span class="text-xs text-slate-600">目前篩選：</span>
         <span id="filter-tags-container" class="flex flex-wrap gap-2"></span>
         <button onclick="clearAllFilters()" class="text-xs text-rose-400 hover:text-rose-300 font-medium underline">清除</button>
       </div>
@@ -121,9 +121,9 @@
       <div id="apps-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
       <!-- 無資料提示 -->
-      <div id="no-data-alert" class="text-center py-16 bg-slate-800/20 border border-dashed border-slate-800 rounded-xl hidden">
+      <div id="no-data-alert" class="text-center py-16 bg-slate-100/20 border border-dashed border-slate-300 rounded-xl hidden">
         <p class="text-5xl mb-4">📭</p>
-        <h3 class="text-lg font-bold text-slate-300">找不到符合條件的資源</h3>
+        <h3 class="text-lg font-bold text-slate-700">找不到符合條件的資源</h3>
         <p class="text-sm text-slate-500 mt-1">試著調整搜尋條件或篩選條件</p>
       </div>
 
@@ -132,64 +132,64 @@
   </main>
 
   <!-- 頁腳 -->
-  <footer class="border-t border-slate-800 bg-slate-950 py-6 text-center text-xs mt-auto space-y-3">
-    <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-slate-400 font-medium">
-      <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">v2.0 教學資源版</span>
-      <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">天主教海星高級中學</span>
+  <footer class="border-t border-slate-300 bg-slate-50 py-6 text-center text-xs mt-auto space-y-3">
+    <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-1.5 text-slate-600 font-medium">
+      <span class="bg-white px-2.5 py-1 rounded-md border border-slate-300">v2.0 教學資源版</span>
+      <span class="bg-white px-2.5 py-1 rounded-md border border-slate-300">天主教海星高級中學 • 葉東茂老師</span>
       <span class="bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-900/50 text-emerald-300 font-bold">📅 Updated: Jun 16, 2026</span>
     </div>
   </footer>
 
   <!-- 使用說明彈窗 -->
   <div id="instruction-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col h-[85vh]">
-      <div class="p-6 border-b border-slate-700 flex items-center justify-between">
-        <h3 class="text-lg font-bold text-white">📖 使用說明</h3>
-        <button onclick="closeGuideModal()" class="text-slate-400 hover:text-white text-xl p-1">✕</button>
+    <div class="bg-slate-100 border border-slate-300 rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl flex flex-col h-[85vh]">
+      <div class="p-6 border-b border-slate-300 flex items-center justify-between">
+        <h3 class="text-lg font-bold text-slate-800">📖 使用說明</h3>
+        <button onclick="closeGuideModal()" class="text-slate-600 hover:text-slate-800 text-xl p-1">✕</button>
       </div>
-      <div class="p-6 overflow-y-auto flex-grow space-y-4 text-sm text-slate-300">
-        <h4 class="font-bold text-white text-base">🎯 功能說明</h4>
+      <div class="p-6 overflow-y-auto flex-grow space-y-4 text-sm text-slate-700">
+        <h4 class="font-bold text-slate-800 text-base">🎯 功能說明</h4>
         <p>這是一個生物課程教學資源導覽平台，用於組織和展示高中生物教材、教案、影片、實驗與互動工具。</p>
         
-        <h4 class="font-bold text-white text-base mt-4">⚙️ 管理編輯</h4>
+        <h4 class="font-bold text-slate-800 text-base mt-4">⚙️ 管理編輯</h4>
         <p>點擊右上角「⚙️ 管理編輯」開啟編輯模式，可以新增/編輯資源。修改完成後點擊「💾 匯出最新 HTML」下載更新後的檔案，再上傳至 GitHub。</p>
         
-        <h4 class="font-bold text-white text-base mt-4">📚 資源分類</h4>
+        <h4 class="font-bold text-slate-800 text-base mt-4">📚 資源分類</h4>
         <ul class="list-disc pl-5 space-y-1">
           <li><strong>課程年級</strong>：高一、高二、高三</li>
           <li><strong>資源類型</strong>：教案、影片、實驗、習題、互動工具</li>
           <li><strong>難度級別</strong>：基礎、進階</li>
         </ul>
       </div>
-      <div class="p-4 bg-slate-900 border-t border-slate-700 flex justify-end">
-        <button onclick="closeGuideModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-medium px-5 py-2 rounded-lg transition text-xs">開始使用</button>
+      <div class="p-4 bg-white border-t border-slate-300 flex justify-end">
+        <button onclick="closeGuideModal()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-800 font-medium px-5 py-2 rounded-lg transition text-xs">開始使用</button>
       </div>
     </div>
   </div>
 
   <!-- 分類編輯彈窗 -->
   <div id="category-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-slate-800 border border-slate-700 rounded-xl w-full max-w-md overflow-hidden shadow-2xl p-6 space-y-4">
-      <h3 id="category-modal-title" class="text-base font-bold text-white flex items-center gap-1.5"><span>➕</span> 新增資源類型</h3>
+    <div class="bg-slate-100 border border-slate-300 rounded-xl w-full max-w-md overflow-hidden shadow-2xl p-6 space-y-4">
+      <h3 id="category-modal-title" class="text-base font-bold text-slate-800 flex items-center gap-1.5"><span>➕</span> 新增資源類型</h3>
       <div class="space-y-3 text-sm">
         <div id="category-parent-field" class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">所屬課程年級</label>
-          <select id="category-parent-select" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
+          <label class="block text-xs font-semibold text-slate-600">所屬課程年級</label>
+          <select id="category-parent-select" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">類型代碼</label>
-          <input type="text" id="category-id-input" placeholder="例：teaching-plan" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">類型代碼</label>
+          <input type="text" id="category-id-input" placeholder="例：teaching-plan" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">類型名稱</label>
-          <input type="text" id="category-name-input" placeholder="例：📄 教案" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">類型名稱</label>
+          <input type="text" id="category-name-input" placeholder="例：📄 教案" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
       </div>
       <div class="flex justify-between items-center pt-2">
-        <button id="category-delete-btn" onclick="deleteCategory(document.getElementById('category-id-input').value, true)" class="bg-rose-600 hover:bg-rose-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition hidden">🗑️ 刪除</button>
+        <button id="category-delete-btn" onclick="deleteCategory(document.getElementById('category-id-input').value, true)" class="bg-rose-600 hover:bg-rose-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition hidden">🗑️ 刪除</button>
         <div class="flex gap-2 ml-auto">
           <button onclick="closeCategoryModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2 rounded-lg text-xs font-medium transition">取消</button>
-          <button onclick="saveCategory()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition">儲存</button>
+          <button onclick="saveCategory()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition">儲存</button>
         </div>
       </div>
     </div>
@@ -197,62 +197,62 @@
 
   <!-- 資源編輯彈窗 -->
   <div id="app-edit-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-slate-800 border border-slate-700 rounded-xl w-full max-w-lg overflow-hidden shadow-2xl p-6 space-y-4">
-      <h3 id="app-modal-title" class="text-base font-bold text-white flex items-center gap-1.5"><span>➕</span> 新增教學資源</h3>
+    <div class="bg-slate-100 border border-slate-300 rounded-xl w-full max-w-lg overflow-hidden shadow-2xl p-6 space-y-4">
+      <h3 id="app-modal-title" class="text-base font-bold text-slate-800 flex items-center gap-1.5"><span>➕</span> 新增教學資源</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">資源名稱</label>
-          <input type="text" id="app-title" placeholder="例：細胞構造與功能" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">資源名稱</label>
+          <input type="text" id="app-title" placeholder="例：細胞構造與功能" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">資源 ID</label>
-          <input type="text" id="app-id" placeholder="例：cell-structure" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">資源 ID</label>
+          <input type="text" id="app-id" placeholder="例：cell-structure" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">課程年級</label>
-          <select id="app-large-cat" onchange="updateAppSubCatSelect()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
+          <label class="block text-xs font-semibold text-slate-600">課程年級</label>
+          <select id="app-large-cat" onchange="updateAppSubCatSelect()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">資源類型</label>
-          <select id="app-sub-cat" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
+          <label class="block text-xs font-semibold text-slate-600">資源類型</label>
+          <select id="app-sub-cat" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm"></select>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">難度等級</label>
-          <select id="app-type" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">難度等級</label>
+          <select id="app-type" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
             <option value="basic">基礎</option>
             <option value="advanced">進階</option>
           </select>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">Emoji 圖示</label>
-          <input type="text" id="app-icon" placeholder="例：🧬" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">Emoji 圖示</label>
+          <input type="text" id="app-icon" placeholder="例：🧬" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5 col-span-1 sm:col-span-2">
-          <label class="block text-xs font-semibold text-slate-400">資源網址或路徑</label>
-          <input type="text" id="app-url" placeholder="例：https://... 或 apps/cell/index.html" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">資源網址或路徑</label>
+          <input type="text" id="app-url" placeholder="例：https://... 或 apps/cell/index.html" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">建立日期</label>
-          <input type="date" id="app-date" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">建立日期</label>
+          <input type="date" id="app-date" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-xs font-semibold text-slate-400">課程章節</label>
-          <input type="text" id="app-chapter" placeholder="例：第2章 細胞構造" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">課程章節</label>
+          <input type="text" id="app-chapter" placeholder="例：第2章 細胞構造" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
         <div class="space-y-1.5 col-span-1 sm:col-span-2">
-          <label class="block text-xs font-semibold text-slate-400">資源描述</label>
-          <textarea id="app-desc" rows="2" placeholder="說明此資源的內容和用途..." class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm"></textarea>
+          <label class="block text-xs font-semibold text-slate-600">資源描述</label>
+          <textarea id="app-desc" rows="2" placeholder="說明此資源的內容和用途..." class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm"></textarea>
         </div>
         <div class="space-y-1.5 col-span-1 sm:col-span-2">
-          <label class="block text-xs font-semibold text-slate-400">標籤（用逗號分隔）</label>
-          <input type="text" id="app-tags" placeholder="例：細胞膜, 細胞核, 線粒體" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-slate-100 focus:outline-none focus:border-emerald-500 transition text-sm">
+          <label class="block text-xs font-semibold text-slate-600">標籤（用逗號分隔）</label>
+          <input type="text" id="app-tags" placeholder="例：細胞膜, 細胞核, 線粒體" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-slate-900 focus:outline-none focus:border-emerald-500 transition text-sm">
         </div>
       </div>
-      <div class="flex justify-between items-center pt-2 border-t border-slate-700/50 mt-4">
-        <button id="app-delete-btn" onclick="deleteApp(document.getElementById('app-id').value)" class="bg-rose-600 hover:bg-rose-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition hidden">🗑️ 刪除</button>
+      <div class="flex justify-between items-center pt-2 border-t border-slate-300/50 mt-4">
+        <button id="app-delete-btn" onclick="deleteApp(document.getElementById('app-id').value)" class="bg-rose-600 hover:bg-rose-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition hidden">🗑️ 刪除</button>
         <div class="flex gap-2 ml-auto">
           <button onclick="closeAppModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2 rounded-lg text-xs font-medium transition">取消</button>
-          <button onclick="saveApp()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition">儲存資源</button>
+          <button onclick="saveApp()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition">儲存資源</button>
         </div>
       </div>
     </div>
@@ -260,21 +260,21 @@
 
   <!-- 匯出彈窗 -->
   <div id="export-modal" class="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-3xl h-[85vh] overflow-hidden shadow-2xl flex flex-col">
-      <div class="p-6 border-b border-slate-700 flex items-center justify-between">
-        <h3 class="text-base font-bold text-white flex items-center gap-1.5">
+    <div class="bg-slate-100 border border-slate-300 rounded-2xl w-full max-w-3xl h-[85vh] overflow-hidden shadow-2xl flex flex-col">
+      <div class="p-6 border-b border-slate-300 flex items-center justify-between">
+        <h3 class="text-base font-bold text-slate-800 flex items-center gap-1.5">
           <span>💾</span> 匯出最新的 HTML 檔案
         </h3>
-        <button onclick="closeExportModal()" class="text-slate-400 hover:text-white text-xl p-1">✕</button>
+        <button onclick="closeExportModal()" class="text-slate-600 hover:text-slate-800 text-xl p-1">✕</button>
       </div>
       <div class="p-6 overflow-y-auto flex-grow space-y-4">
-        <p class="text-sm text-slate-400">複製下方程式碼或下載 HTML 檔案，上傳至 GitHub 即可更新資源內容。</p>
-        <textarea id="exported-code-area" readonly="" class="w-full h-80 bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs text-emerald-400 focus:outline-none select-all"></textarea>
+        <p class="text-sm text-slate-600">複製下方程式碼或下載 HTML 檔案，上傳至 GitHub 即可更新資源內容。</p>
+        <textarea id="exported-code-area" readonly="" class="w-full h-80 bg-slate-50 border border-slate-300 rounded-xl p-4 font-mono text-xs text-emerald-400 focus:outline-none select-all"></textarea>
       </div>
-      <div class="p-4 bg-slate-900 border-t border-slate-700 flex justify-end gap-2">
+      <div class="p-4 bg-white border-t border-slate-300 flex justify-end gap-2">
         <button onclick="closeExportModal()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 py-2 rounded-lg text-xs font-medium transition">關閉</button>
-        <button onclick="downloadHtmlFile()" class="bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition">📥 下載 HTML</button>
-        <button onclick="copyExportedCode()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-medium transition">📋 複製程式碼</button>
+        <button onclick="downloadHtmlFile()" class="bg-teal-600 hover:bg-teal-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition">📥 下載 HTML</button>
+        <button onclick="copyExportedCode()" class="bg-emerald-600 hover:bg-emerald-500 text-slate-800 px-4 py-2 rounded-lg text-xs font-medium transition">📋 複製程式碼</button>
       </div>
     </div>
   </div>
@@ -665,9 +665,9 @@
       ["all", "basic", "advanced"].forEach(function(t) {
         const btn = document.getElementById("type-filter-" + t);
         if (t === type) {
-          btn.className = "px-3 py-1.5 rounded-md font-medium bg-emerald-600 text-white transition";
+          btn.className = "px-3 py-1.5 rounded-md font-medium bg-emerald-600 text-slate-800 transition";
         } else {
-          btn.className = "px-3 py-1.5 rounded-md font-medium text-slate-400 hover:text-slate-200 transition";
+          btn.className = "px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-200 transition";
         }
       });
       filterAndRenderResources();
@@ -680,16 +680,16 @@
       if (isAdminMode) {
         banner.classList.remove("hidden");
         toggleBtn.innerHTML = `🟢 <span class="hidden sm:inline">編輯中</span>`;
-        toggleBtn.classList.remove("bg-slate-800", "text-slate-300");
-        toggleBtn.classList.add("bg-emerald-600", "text-white");
+        toggleBtn.classList.remove("bg-slate-100", "text-slate-700");
+        toggleBtn.classList.add("bg-emerald-600", "text-slate-800");
         document.getElementById("admin-add-large").classList.remove("hidden");
         document.getElementById("admin-add-sub").classList.remove("hidden");
         showToast("已開啟管理編輯模式", "⚙️");
       } else {
         banner.classList.add("hidden");
         toggleBtn.innerHTML = `<span>⚙️</span> <span class="hidden sm:inline">管理編輯</span>`;
-        toggleBtn.classList.remove("bg-emerald-600", "text-white");
-        toggleBtn.classList.add("bg-slate-800", "text-slate-300");
+        toggleBtn.classList.remove("bg-emerald-600", "text-slate-800");
+        toggleBtn.classList.add("bg-slate-100", "text-slate-700");
         document.getElementById("admin-add-large").classList.add("hidden");
         document.getElementById("admin-add-sub").classList.add("hidden");
       }
@@ -701,7 +701,7 @@
     function renderLargeCategories() {
       const menu = document.getElementById("large-category-menu");
       let html = `
-        <button onclick="selectLargeCategory(null)" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition ${!currentLargeFilter ? 'bg-emerald-600 text-white' : 'text-slate-300 hover:bg-slate-800'}">
+        <button onclick="selectLargeCategory(null)" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition ${!currentLargeFilter ? 'bg-emerald-600 text-slate-800' : 'text-slate-700 hover:bg-slate-100'}">
           🌐 顯示全部 <span class="text-xs float-right">${TEACHING_CONFIG.resources.length}</span>
         </button>
       `;
@@ -710,11 +710,11 @@
         const isActive = currentLargeFilter === cat.id;
         html += `
           <div class="flex items-center justify-between group gap-1">
-            <button onclick="selectLargeCategory('${cat.id}')" class="flex-grow text-left px-3 py-2 rounded-lg text-sm font-medium transition ${isActive ? 'bg-emerald-600 text-white' : 'text-slate-300 hover:bg-slate-800'} min-w-0">
+            <button onclick="selectLargeCategory('${cat.id}')" class="flex-grow text-left px-3 py-2 rounded-lg text-sm font-medium transition ${isActive ? 'bg-emerald-600 text-slate-800' : 'text-slate-700 hover:bg-slate-100'} min-w-0">
               <span class="mr-1">${cat.name}</span>
               <span class="text-xs float-right">${count}</span>
             </button>
-            ${isAdminMode ? `<button onclick="openCategoryModal('${cat.id}', false)" class="w-8 h-8 flex items-center justify-center text-emerald-400 hover:text-white bg-slate-900 border border-slate-700 hover:border-emerald-500/50 rounded transition text-xs hidden">✏️</button>` : ''}
+            ${isAdminMode ? `<button onclick="openCategoryModal('${cat.id}', false)" class="w-8 h-8 flex items-center justify-center text-emerald-400 hover:text-slate-800 bg-white border border-slate-300 hover:border-emerald-500/50 rounded transition text-xs hidden">✏️</button>` : ''}
           </div>
         `;
       });
@@ -732,12 +732,12 @@
         subMenuContainer.innerHTML = `<p class="text-xs text-slate-500 italic">此年級無子類別</p>`;
         return;
       }
-      let html = `<button onclick="selectSubCategory(null)" class="w-full text-left px-3 py-1.5 rounded transition text-slate-300 hover:text-slate-100 text-sm">● 顯示所有類型</button>`;
+      let html = `<button onclick="selectSubCategory(null)" class="w-full text-left px-3 py-1.5 rounded transition text-slate-700 hover:text-slate-900 text-sm">● 顯示所有類型</button>`;
       activeCat.subcategories.forEach(function(sub) {
         const count = TEACHING_CONFIG.resources.filter(function(r) { return r.largeCategory === currentLargeFilter && r.subCategory === sub.id; }).length;
         const isActive = currentSubFilter === sub.id;
         html += `
-          <button onclick="selectSubCategory('${sub.id}')" class="w-full text-left px-3 py-1.5 rounded transition ${isActive ? 'text-emerald-400 font-bold' : 'text-slate-300 hover:text-slate-100'} text-sm">
+          <button onclick="selectSubCategory('${sub.id}')" class="w-full text-left px-3 py-1.5 rounded transition ${isActive ? 'text-emerald-400 font-bold' : 'text-slate-700 hover:text-slate-900'} text-sm">
             ${sub.name} <span class="text-xs float-right">${count}</span>
           </button>
         `;
@@ -1001,9 +1001,9 @@
       let cardsHtml = "";
       if (isAdminMode) {
         cardsHtml += `
-          <button onclick="openAppModal(null)" class="group bg-slate-800/10 hover:bg-slate-800/30 border-2 border-dashed border-slate-700 hover:border-emerald-500/50 rounded-2xl p-6 transition-all flex flex-col items-center justify-center text-center shadow-lg h-full min-h-[300px]">
+          <button onclick="openAppModal(null)" class="group bg-slate-100/10 hover:bg-slate-100/30 border-2 border-dashed border-slate-300 hover:border-emerald-500/50 rounded-2xl p-6 transition-all flex flex-col items-center justify-center text-center shadow-lg h-full min-h-[300px]">
             <span class="text-4xl mb-3 group-hover:scale-125 transition">➕</span>
-            <span class="text-sm font-bold text-slate-300 group-hover:text-emerald-400 transition">新增教學資源</span>
+            <span class="text-sm font-bold text-slate-700 group-hover:text-emerald-400 transition">新增教學資源</span>
             <p class="text-xs text-slate-500 mt-2">點擊新增教案、影片或其他資源</p>
           </button>
         `;
@@ -1019,15 +1019,15 @@
           : `<span class="text-[9px] font-bold text-emerald-300 bg-emerald-950/80 border border-emerald-500/40 px-2 py-0.5 rounded-md">🟢 基礎</span>`;
 
         const tagsHtml = res.tags.map(function(tag) {
-          return `<button onclick="filterByTag('${tag}')" class="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700/50 hover:border-emerald-500/50 hover:text-white transition">#${tag}</button>`;
+          return `<button onclick="filterByTag('${tag}')" class="inline-flex px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-600 border border-slate-300/50 hover:border-emerald-500/50 hover:text-slate-800 transition">#${tag}</button>`;
         }).join("");
 
         cardsHtml += `
-          <div class="group bg-slate-800/40 hover:bg-slate-800/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between shadow-lg hover:shadow-emerald-500/5 relative overflow-hidden">
-            ${isAdminMode ? `<div class="absolute top-3 right-3 flex gap-1.5"><button onclick="openAppModal('${res.id}')" class="text-xs text-emerald-300 hover:text-white font-bold bg-slate-900/95 border border-slate-700 px-2.5 py-1 rounded transition">✏️ 編輯</button></div>` : ''}
+          <div class="group bg-white hover:bg-slate-100/80 border border-slate-300 hover:border-emerald-500/50 rounded-2xl p-6 transition-all flex flex-col justify-between shadow-lg hover:shadow-emerald-500/5 relative overflow-hidden">
+            ${isAdminMode ? `<div class="absolute top-3 right-3 flex gap-1.5"><button onclick="openAppModal('${res.id}')" class="text-xs text-emerald-300 hover:text-slate-800 font-bold bg-white/95 border border-slate-300 px-2.5 py-1 rounded transition">✏️ 編輯</button></div>` : ''}
             <div>
               <div class="flex items-start justify-between gap-4 mb-4">
-                <span class="text-4xl shrink-0 p-2 bg-slate-900 rounded-xl border border-slate-700/30 group-hover:scale-110 transition">${res.icon}</span>
+                <span class="text-4xl shrink-0 p-2 bg-white rounded-xl border border-slate-300/30 group-hover:scale-110 transition">${res.icon}</span>
                 <div class="text-right space-y-1">
                   <span class="inline-block text-[10px] uppercase tracking-wider font-semibold text-emerald-400 bg-emerald-950/50 border border-emerald-900/50 px-2.5 py-1 rounded-full">
                     ${gradeName} ${typeName ? `• ${typeName}` : ''}
@@ -1035,15 +1035,15 @@
                   <div>${difficultyBadge}</div>
                 </div>
               </div>
-              <h3 class="text-base font-bold text-slate-100 group-hover:text-emerald-400 transition mb-2">${res.title}</h3>
-              <p class="text-xs text-slate-400 leading-relaxed mb-2">${res.chapter}</p>
-              <p class="text-xs text-slate-400 leading-relaxed mb-4 line-clamp-3">${res.description}</p>
+              <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-400 transition mb-2">${res.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed mb-2">${res.chapter}</p>
+              <p class="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">${res.description}</p>
             </div>
             <div class="space-y-4">
               <div class="flex flex-wrap gap-1.5">${tagsHtml}</div>
-              <div class="border-t border-slate-800 pt-4 flex items-center justify-between">
+              <div class="border-t border-slate-300 pt-4 flex items-center justify-between">
                 <span class="text-[10px] text-slate-500">${res.dateAdded}</span>
-                <a href="${res.url}" ${res.url.startsWith('http') ? 'target="_blank"' : ''} class="inline-flex items-center gap-1 text-xs font-medium text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-lg transition">進入資源 →</a>
+                <a href="${res.url}" ${res.url.startsWith('http') ? 'target="_blank"' : ''} class="inline-flex items-center gap-1 text-xs font-medium text-slate-800 bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-lg transition">進入資源 →</a>
               </div>
             </div>
           </div>
@@ -1073,7 +1073,7 @@
         }
       }
       if (searchQuery) {
-        html += `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-700">"${searchQuery}"<button onclick="clearSearchInput()" class="ml-1">✕</button></span>`;
+        html += `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-200 border border-slate-300">"${searchQuery}"<button onclick="clearSearchInput()" class="ml-1">✕</button></span>`;
       }
       document.getElementById("filter-tags-container").innerHTML = html;
     }
